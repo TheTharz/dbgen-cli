@@ -1,0 +1,26 @@
+{
+  "tables": {
+    "users": {
+      "columns": {
+        "id": "INTEGER PRIMARY KEY",
+        "name": "TEXT NOT NULL",
+        "email": "TEXT UNIQUE NOT NULL",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+      }
+    },
+    "posts": {
+      "columns": {
+        "id": "INTEGER PRIMARY KEY",
+        "title": "TEXT NOT NULL",
+        "content": "TEXT",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "user_id": "INTEGER"
+      },
+      "foreign_keys": {
+        "user_id": {
+          "references": "users(id)"
+        }
+      }
+    }
+  }
+}
